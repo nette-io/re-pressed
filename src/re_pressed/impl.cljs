@@ -172,6 +172,7 @@
                        :ctrlKey  (.-ctrlKey e)
                        :metaKey  (.-metaKey e)
                        :shiftKey (.-shiftKey e)
+                       :keyCode  (.-keyCode e)
                        :key      e-key}
 
               always-listen-keys @(rf/subscribe [(ns-keyword "-always-listen-keys")])
