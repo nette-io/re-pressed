@@ -172,8 +172,11 @@
                        :ctrlKey  (.-ctrlKey e)
                        :metaKey  (.-metaKey e)
                        :shiftKey (.-shiftKey e)
+                       ;; this is for backwards compatibility, but is the deprecated and problematic API
                        :keyCode  (.-keyCode e)
+                       ;; this is new API; determines which physical key was pressed
                        :code     (.-code e)
+                       ;; this is new API; contains the value of the key pressed. It accounts for modifiers.
                        :key      e-key}
 
               always-listen-keys @(rf/subscribe [(ns-keyword "-always-listen-keys")])
