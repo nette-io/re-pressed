@@ -146,7 +146,8 @@
       js/document
       event-type
       (fn [e]
-        (let [ns-keyword (->ns-keyword event-type)
+        (let [base-event (. e -event_)
+              ns-keyword (->ns-keyword event-type)
 
               e-key         (.-key e)
               modifier-key? (modifier-keys e-key)
@@ -175,7 +176,7 @@
                        ;; this is for backwards compatibility, but is the deprecated and problematic API
                        :keyCode  (.-keyCode e)
                        ;; this is new API; determines which physical key was pressed
-                       :code     (.-code e)
+                       :code     (.-code base-event)
                        ;; this is new API; contains the value of the key pressed. It accounts for modifiers.
                        :key      e-key}
 
